@@ -1,52 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CollabRate</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
-  <body onload="fetchIssues()">
-    <div class="container">
-      
-      <h1>CollabRate </h1>
-      <h1><small>Collaborate, create and assign tickets. <br> Rate the ticket on the quality of the work done.</small></h1>
-      <div class="jumbotron">
-        <h3>Add New Issue:</h3>
-        <form id="issueInputForm">
-          <div class="form-group">
-            <label for="issueDescInput">Description</label>
-            <input type="text" class="form-control" id="issueDescInput" placeholder="Describe the issue ...">
-          </div>
-          <div class="form-group">
-            <label for="issueSeverityInput">Severity</label>
-            <select id="issueSeverityInput" class="form-control">
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="issueAssignedToInput">Assigned To</label>
-            <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter responsible ...">
-          </div>
-          <button type="submit" class="btn btn-primary">Add</button>
-        </form>
-      </div>
-      <div class="col-lg-12">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CollabRate</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body onload="fetchIssues()">
+  <div class="container">
+
+    <h1>CollabRate </h1>
+    <h1><small>Collaborate, create and assign tickets. <br> Rate the ticket on the quality of the work done.</small>
+    </h1>
+    <div class="jumbotron">
+      <h3>Add New Issue:</h3>
+      <form id="issueInputForm">
+        <div class="form-group">
+          <label for="issueDescInput">Description</label>
+          <input type="text" class="form-control" id="issueDescInput" placeholder="Describe the issue ...">
+        </div>
+        <div class="form-group">
+          <label for="issueSeverityInput">Severity</label>
+          <select id="issueSeverityInput" class="form-control">
+            <option value="Very Low">Very Low</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Very High">Very High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="issueAssignedToInput">Assigned To</label>
+          <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter responsible ...">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+
+    <!--==================== Issues List ====================-->
+    <div class="row">
+      <div class="col-sm-3">
+        <h4>Status: Backlog</h4>
         <div id="issuesList">
         </div>
       </div>
-      <div class="footer">
-        <p>&copy 2022 <a href="#" target="_blank">Jahnavi Prasad</a></p>
+
+      <div class="col-sm-3">
+        <h4>Status: Work In Progress</h4>
+        <div id="issuesList2">
+        </div>
       </div>
+
+      <div class="col-sm-3">
+        <h4>Status: Pending</h4>
+        <div id="issuesList3">
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <h4>Status: Review</h4>
+        <div id="issuesList4">
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <h4>Status: Closed</h4>
+      <div id="issuesList5">
+      </div>
+  </div>
     </div>
-    <script src="chance.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-  </body>
+
+    <div class="footer">
+      <p>&copy 2022 <a href="https://jahnaviprasad.live/" target="_blank">Jahnavi Prasad</a></p>
+    </div>
+  </div>
+  <script src="chance.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
